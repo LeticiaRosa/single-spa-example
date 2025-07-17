@@ -1,6 +1,6 @@
 {
   "extends": "ts-config-single-spa",
-  "files": ["src/bytebank-root-config.ts"],
+  "files": ["src/teste-root-config.ts"],
   "compilerOptions": {
     "declarationDir": "dist"
   },
