@@ -185,14 +185,6 @@ cd react
 npm start -- --port 8600
 ```
 
-### Problemas de CORS
-
-Se você encontrar problemas de CORS, verifique se:
-
-- Os servidores estão rodando nas portas corretas
-- O import map está configurado corretamente
-- As URLs dos microfrontends estão acessíveis
-
 ### Erro ERR_REQUIRE_ESM
 
 Se você encontrar erros relacionados a módulos ES:
@@ -221,14 +213,3 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 ## 👨‍💻 Autor
 
 - **LeticiaRosa** - [GitHub](https://github.com/LeticiaRosa)
-
----
-
-🎉 **Parabéns!** Você tem um projeto funcional de microfrontends com single-spa!
-
-Este projeto demonstra os conceitos fundamentais de microfrontends utilizando single-spa, incluindo:
-
-- Configuração de root config
-- Criação de microfrontends React
-- Gerenciamento de dependências compartilhadas
-- Roteamento entre microfrontends
