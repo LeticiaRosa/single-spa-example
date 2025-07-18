@@ -3,7 +3,7 @@ const singleSpaDefaults = require("webpack-config-single-spa-ts");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = (webpackConfigEnv, argv) => {
-  const orgName = "teste";
+  const orgName = "bytebank"; // Update the orgName to match the new package names
   const defaultConfig = singleSpaDefaults({
     orgName,
     projectName: "root-config",

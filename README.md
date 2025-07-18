@@ -123,7 +123,7 @@ As dependências compartilhadas são configuradas no arquivo `index.ejs` e inclu
 
 - React e ReactDOM
 - Single-SPA
-- Mapeamento dos microfrontends locais (@teste/root-config e @teste/teste)
+- Mapeamento dos microfrontends locais (@bytebank/root-config e @bytebank/teste)
 
 ### Microfrontend Layout
 
@@ -143,7 +143,7 @@ Para adicionar um novo microfrontend ao projeto:
 
 ```html
 <route path="/novo-microfrontend">
-  <application name="@teste/novo-microfrontend"></application>
+  <application name="@bytebank/novo-microfrontend"></application>
 </route>
 ```
 
@@ -152,7 +152,7 @@ Para adicionar um novo microfrontend ao projeto:
 ```javascript
 {
   "imports": {
-    "@teste/novo-microfrontend": "//localhost:8600/novo-microfrontend.js"
+    "@bytebank/novo-microfrontend": "//localhost:8600/novo-microfrontend.js"
   }
 }
 ```
@@ -161,9 +161,9 @@ Para adicionar um novo microfrontend ao projeto:
 
 ```javascript
 window.importMapInjector.initPromise.then(() => {
-  import("@teste/root-config");
-  import("@teste/teste");
-  import("@teste/novo-microfrontend");
+  import("@bytebank/root-config");
+  import("@bytebank/teste");
+  import("@bytebank/novo-microfrontend");
 });
 ```
 
