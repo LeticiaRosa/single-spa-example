@@ -17,7 +17,7 @@ Single-SPA é um framework que permite criar aplicações frontend usando a arqu
 single-spa-example/
 ├── root-config/                   # Configuração raiz do single-spa
 │   ├── src/
-│   │   ├── teste-root-config.ts   # Configuração principal do root config
+│   │   ├── bytebank-root-config.ts   # Configuração principal do root config
 │   │   ├── index.ejs              # Template HTML principal
 │   │   ├── microfrontend-layout.html  # Layout dos microfrontends
 │   │   └── declarations.d.ts      # Declarações TypeScript
@@ -25,10 +25,19 @@ single-spa-example/
 │   ├── webpack.config.js          # Configuração do Webpack
 │   ├── tsconfig.json              # Configuração do TypeScript
 │   └── babel.config.json          # Configuração do Babel
-├── react/                         # Microfrontend React
+├── menu/                          # Microfrontend Menu
 │   ├── src/
-│   │   ├── teste-teste.tsx        # Configuração do microfrontend React
-│   │   ├── root.component.tsx     # Componente principal do React
+│   │   ├── bytebank-menu.tsx      # Configuração do microfrontend Menu
+│   │   ├── root.component.tsx     # Componente principal do Menu
+│   │   └── declarations.d.ts      # Declarações TypeScript
+│   ├── package.json
+│   ├── webpack.config.js          # Configuração do Webpack
+│   ├── tsconfig.json              # Configuração do TypeScript
+│   └── babel.config.json          # Configuração do Babel
+├── transactions/                  # Microfrontend Transactions
+│   ├── src/
+│   │   ├── bytebank-transactions.tsx  # Configuração do microfrontend Transactions
+│   │   ├── root.component.tsx     # Componente principal do Transactions
 │   │   └── declarations.d.ts      # Declarações TypeScript
 │   ├── package.json
 │   ├── webpack.config.js          # Configuração do Webpack
@@ -69,10 +78,17 @@ cd root-config
 npm install
 ```
 
-3. Instale as dependências do microfrontend React:
+3. Instale as dependências do microfrontend Menu:
 
 ```bash
-cd ../react
+cd ../menu
+npm install
+```
+
+4. Instale as dependências do microfrontend Transactions:
+
+```bash
+cd ../transactions
 npm install
 ```
 
@@ -80,18 +96,27 @@ npm install
 
 ### Desenvolvimento
 
-Para executar o projeto em desenvolvimento, você precisa iniciar ambos os servidores:
+Para executar o projeto em desenvolvimento, você precisa iniciar todos os servidores:
 
-1. **Inicie o microfrontend React** (em um terminal):
+1. **Inicie o microfrontend Menu** (em um terminal):
 
 ```bash
-cd react
+cd menu
 npm start
 ```
 
-O microfrontend React será iniciado na porta 8500: localhost:8500
+O microfrontend Menu será iniciado na porta 8500: localhost:8500
 
-2. **Inicie o root config** (em outro terminal):
+2. **Inicie o microfrontend Transactions** (em outro terminal):
+
+```bash
+cd transactions
+npm start
+```
+
+O microfrontend Transactions será iniciado na porta 8501: localhost:8501
+
+3. **Inicie o root config** (em outro terminal):
 
 ```bash
 cd root-config
@@ -123,7 +148,7 @@ As dependências compartilhadas são configuradas no arquivo `index.ejs` e inclu
 
 - React e ReactDOM
 - Single-SPA
-- Mapeamento dos microfrontends locais (@bytebank/root-config e @bytebank/teste)
+- Mapeamento dos microfrontends locais (@single-spa-example/root-config, @single-spa-example/menu e @single-spa-example/transactions)
 
 ### Microfrontend Layout
 
@@ -143,7 +168,7 @@ Para adicionar um novo microfrontend ao projeto:
 
 ```html
 <route path="/novo-microfrontend">
-  <application name="@bytebank/novo-microfrontend"></application>
+  <application name="@single-spa-example/novo-microfrontend"></application>
 </route>
 ```
 
@@ -152,7 +177,7 @@ Para adicionar um novo microfrontend ao projeto:
 ```javascript
 {
   "imports": {
-    "@bytebank/novo-microfrontend": "//localhost:8600/novo-microfrontend.js"
+    "@single-spa-example/novo-microfrontend": "//localhost:8600/novo-microfrontend.js"
   }
 }
 ```
@@ -161,9 +186,10 @@ Para adicionar um novo microfrontend ao projeto:
 
 ```javascript
 window.importMapInjector.initPromise.then(() => {
-  import("@bytebank/root-config");
-  import("@bytebank/teste");
-  import("@bytebank/novo-microfrontend");
+  import("@single-spa-example/root-config");
+  import("@single-spa-example/menu");
+  import("@single-spa-example/transactions");
+  import("@single-spa-example/novo-microfrontend");
 });
 ```
 
@@ -178,11 +204,18 @@ cd root-config
 npm start -- --port 8080
 ```
 
-Se a porta 8500 (microfrontend React) estiver ocupada:
+Se a porta 8500 (microfrontend Menu) estiver ocupada:
 
 ```bash
-cd react
+cd menu
 npm start -- --port 8600
+```
+
+Se a porta 8501 (microfrontend Transactions) estiver ocupada:
+
+```bash
+cd transactions
+npm start -- --port 8602
 ```
 
 ### Erro ERR_REQUIRE_ESM
@@ -212,4 +245,4 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ## 👨‍💻 Autor
 
-- **LeticiaRosa** - [GitHub](https://github.com/LeticiaRosa)
+- **LeticiaRosa** -
