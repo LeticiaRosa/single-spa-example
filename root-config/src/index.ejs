@@ -49,8 +49,9 @@
     <script type="injector-importmap">
       {
         "imports": {
-          "@teste/root-config": "//localhost:9000/teste-root-config.js",
-          "@teste/teste": "//localhost:8500/teste-teste.js"
+          "@bytebank/root-config": "//localhost:9000/bytebank-root-config.js",
+          "@bytebank/menu": "//localhost:8500/bytebank-menu.js",
+          "@bytebank/transactions": "//localhost:8000/bytebank-transactions.js"
         }
       }
     </script>
@@ -71,8 +72,7 @@
     </main>
     <script>
       window.importMapInjector.initPromise.then(() => {
-        import("@teste/root-config");
-        import("@teste/teste");
+        import("@bytebank/root-config");
       });
     </script>
     <import-map-overrides-full

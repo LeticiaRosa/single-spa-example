@@ -1,5 +1,5 @@
 {
-  "name": "@teste/teste",
+  "name": "@bytebank/menu",
   "scripts": {
     "start": "webpack serve",
     "start:standalone": "webpack serve --env standalone",
@@ -55,5 +55,5 @@
     "@types/react": "^17.0.19",
     "@types/react-dom": "^17.0.9"
   },
-  "types": "dist/teste-teste.d.ts"
+  "types": "dist/bytebank-menu.d.ts"
 }
